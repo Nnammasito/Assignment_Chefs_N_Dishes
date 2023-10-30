@@ -1,0 +1,30 @@
+﻿@model List<Dishe>
+
+<div class="text-center">
+    <h1>Yum! Check out our tasty Dishes!</h1>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Chef</th>
+                    <th scope="col">Tastiness</th>
+                    <th scope="col">Calories</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var dish in Model)
+                {
+                    <tr>
+                        <td>@dish.Name</td>
+                        <td>@dish.Creator.FirstName @dish.Creator.LastName</td>
+                        <td>@dish.Tastiness</td>
+                        <td>@dish.Calories</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

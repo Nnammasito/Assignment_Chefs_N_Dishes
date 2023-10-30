@@ -1,0 +1,36 @@
+@model Dishe
+<div class="text-center">
+    <form asp-action="CreateDishes" asp-controller="Home" method="post">
+        <div>
+            <label asp-for="Name">Name of Dish: </label>
+            <input asp-for="Name" type="text">
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div>
+            <label asp-for="ChefId"> Chef's Name: </label>
+            <select asp-for="ChefId" asp-items="@(new SelectList((List<Chef>) ViewData["Chefs"], "ChefId", "FirstName"))">
+                <option value="">Select Chef</option>
+            </select>
+            <span asp-validation-for="ChefId"></span>
+        </div>
+        <div>
+            <label asp-for="Calories"># of Calories</label>
+                <input asp-for="Calories" min="1">
+                <span asp-validation-for="Calories"></span>
+        </div>
+        <div>
+            <label asp-for="Tastiness">Tastiness</label>
+                <select asp-for="Tastiness">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <span asp-validation-for="Tastiness"></span>
+        </div>
+        <button type="submit">
+            Add Dish
+        </button>
+    </form>
+</div>
